@@ -9,7 +9,7 @@ if __name__ == '__main__':
         #__data__ = argv[1]
 
         __list__ = hammingCode.getList(__data__)
-        print("data in  list: ", __list__)
+        print("\nEnter data: ", __list__)
 
         k,p,__maxLong__,n,x = hammingCode.getParam(__list__)
 
@@ -17,8 +17,10 @@ if __name__ == '__main__':
         newBinaraList, binaraList = hammingCode.getBinlist(__maxLong__,code,x,p)
 
         encodeCode = hammingCode.encodeMsg(code, newBinaraList, p)
-        print("\nEncode: ", encodeCode)
+        print("\nCode: ", encodeCode)
 
-        decodeCode = hammingCode.errorBit(__list__, code, binaraList, p)
+        decodeCode, messageError, positionError = hammingCode.errorBit(__list__, code, binaraList, p)
+        print("\nError messages: ", messageError)
+        print("\nError position: ", positionError)
 
         hammingCode.printDecodeMsg(decodeCode, p)

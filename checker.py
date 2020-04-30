@@ -39,6 +39,5 @@ def errorGet(__error__, __code__):
     """
     if __error__ == 0:
         print("Decode: ", __code__)
-        exit()
     else:
         return 0

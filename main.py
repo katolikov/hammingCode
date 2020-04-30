@@ -24,3 +24,6 @@ if __name__ == '__main__':
         print("\nError position: ", positionError)
 
         hammingCode.printDecodeMsg(decodeCode, p)
+
+    else:
+        print("Please enter data!")

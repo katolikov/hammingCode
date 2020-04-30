@@ -4,8 +4,9 @@ from sys import argv
 
 if __name__ == '__main__':
     if len (argv) == 2: #Проверяем длинну внешних аргументов
-    
+
         __data__ = hammingCode.charsToBin(argv[1])
+        #__data__ = argv[1]
 
         __list__ = hammingCode.getList(__data__)
         print("data in  list: ", __list__)
@@ -16,7 +17,7 @@ if __name__ == '__main__':
         newBinaraList, binaraList = hammingCode.getBinlist(__maxLong__,code,x,p)
 
         encodeCode = hammingCode.encodeMsg(code, newBinaraList, p)
-        print("Encode: ", encodeCode)
+        print("\nEncode: ", encodeCode)
 
         decodeCode = hammingCode.errorBit(__list__, code, binaraList, p)
 

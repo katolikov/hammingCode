@@ -1,4 +1,5 @@
 import checker
+import random
 
 def charsToBin(chars, encoding='utf-8', errors='surrogatepass'):
     """
@@ -59,20 +60,21 @@ def errorBit(__list__, code, binaraList, p):
     """
     Функция для вставки и получения ошибки
     """
-    error = int(input("Error count: "))
+    #error = int(input("Error count: "))
+    error = random.randrange(5)
     checker.errorGet(error, __list__)
     errorMsg = code.copy()
     errorMsg[error-1] = checker.invert(code[error-1])
 
-    print("error  message: ", errorMsg) # сообщение с ошибкой
+    print("\nError message: ", errorMsg) # сообщение с ошибкой
 
     syndromList = list(str(checker.search(i, errorMsg, binaraList)) for i in range(p))
     syndrom = "".join(syndromList)  # синдром
     #print("syndrom: ", syndrom)
 
-    ind = binaraList.index(syndrom)+1  # номер индекса в котором произошла ошибка
+    ind = binaraList.index(syndrom) + 1  # номер индекса в котором произошла ошибка
 
-    print("error in number: ", ind) # номер индекса в котором произошла ошибка
+    print("\nError in position: ", ind) # номер индекса в котором произошла ошибка
 
     fixedCode = errorMsg.copy()
     fixedCode[ind-1] = checker.invert(errorMsg[ind-1])   # исправленное сообщение
@@ -85,4 +87,4 @@ def printDecodeMsg(fixedCode, p):
     """
     for j in list(i for i in range(p))[::-1]:
         del fixedCode[(2**j)-1]
-    print("Decode: ", fixedCode)
+    print("\nDecode: ", fixedCode)
